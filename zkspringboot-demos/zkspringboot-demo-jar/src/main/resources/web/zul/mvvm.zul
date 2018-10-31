@@ -1,21 +1,29 @@
-<zk>
-	<window title="${labels.mvvm.title}" viewModel="@id('vm') @init('org.zkoss.zkspringboot.demo.viewmodel.MainViewModel')">
-		Current Time (from Spring Service):
+<zk xmlns:n="native">
 
-		<hlayout valign="middle">
-			<label value="@load(vm.currentTime)"/>
-			<button iconSclass="z-icon-refresh" onClick="@command('updateTime')"/>
-		</hlayout>
+	<window title="${labels.mvvm.title}" viewModel="@id('vm') @init('org.zkoss.zkspringboot.demo.viewmodel.MainViewModel')"
+	zclass="card">
+		<div zclass="card-body">
+			<n:h5 zclass="card-title">Bootstrap card theme</n:h5>
+			<div  zclass="alert-primary">
+				<n:p>Current Time (from Spring Service):</n:p>
+				<hlayout valign="middle">
+					<label value="@load(vm.currentTime)"/>
+					<button zclass="btn btn-info"  iconSclass="z-icon-refresh" onClick="@command('updateTime')"/>
+					<button zclass="btn btn-success"  iconSclass="z-icon-refresh" onClick="@command('updateTime')"/>
+				</hlayout>
+			</div>
+			<separator />
 
-		<separator />
-
-		Simple MVVM-Based Sub Navigation:
-		<div>
-			<button label="sub page 1" onClick="@command('navigate', page='page1')"/>
-			<button label="sub page 2" onClick="@command('navigate', page='page2')"/>
+			<div  zclass="alert-success">
+				Simple MVVM-Based Sub Navigation:
+				<div>
+					<button label="sub page 1" onClick="@command('navigate', page='page1')" zclass="btn btn-outline-primary"/>
+					<button label="sub page 2" onClick="@command('navigate', page='page2')" zclass="btn btn-outline-secondary"/>
+				</div>
+			</div>
+			<!-- in ZK CE version you can use the include component -->
+			<!--<include pageModel="@load(vm.currentPage)" src="@load(vm.currentPage.uri)"/>-->
+			<apply templateURI="@load(vm.currentPage.uri)" pageModel="@load(vm.currentPage)"/>
 		</div>
-		<!-- in ZK CE version you can use the include component -->
-		<!--<include pageModel="@load(vm.currentPage)" src="@load(vm.currentPage.uri)"/>-->
-		<apply templateURI="@load(vm.currentPage.uri)" pageModel="@load(vm.currentPage)"/>
 	</window>
 </zk>

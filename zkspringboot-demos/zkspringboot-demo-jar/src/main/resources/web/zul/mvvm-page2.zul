@@ -1,5 +1,7 @@
 <zk>
-	<window title="Page 2" viewModel="@id('subVm') @init(pageModel)">
-		<label value="@load(subVm.data)"/>
+	<window title="Page 2" viewModel="@id('subVm') @init(pageModel)" zclass="card">
+		<div zclass="card-body">
+			<label value="@load(subVm.data)"/>
+		</div>
 	</window>
 </zk>

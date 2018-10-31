@@ -1,6 +1,50 @@
-<zk>
-	What's your name: <textbox id="demoInput"/>
-	<button id="demoButton" label="Submit" onClick='demoLabel.setValue("Hello " + demoInput.getValue() + "!")'/>
-	<separator/>
-	<label id="demoLabel"/>
+<!-- Latest compiled and minified CSS -->
+<?link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"?>
+<!-- Latest compiled and minified JavaScript -->
+<?script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" ?>
+<?script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous" ?>
+<?script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous" ?>
+
+<zk xmlns:n="native">
+  <div  width="100%" height="100%">
+  	<apply template="desktop_layout"/>
+  </div>
+
+	<template name="desktop_layout">
+	    <borderlayout>
+	        <north>
+	        	<div zclass="form-group">What's your name: <textbox id="demoInput" class="form-control"/>
+				<button id="demoButton" label="Submit" onClick='demoLabel.setValue("Hello " + demoInput.getValue() + "!")'
+					zclass="btn btn-outline-warning"/>
+				<separator/>
+				<label id="demoLabel"/>
+				</div>
+	        </north>
+	        <west width="250px">
+	          <div>
+	            <button zclass="btn btn-info">Notifications</button>
+	            <span zclass="badge badge-secondary">5</span>
+	            
+	            <div zclass="card" style="width: 14rem;">
+				  <div zclass="card-body">
+				    <n:h5 class="card-title">Card title</n:h5>
+				    <n:h6 class="card-subtitle mb-2 text-muted">Card subtitle</n:h6>
+				    <n:p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</n:p>
+				    <a href="#" zclass="card-link">Card link</a>
+				    <a href="#" zclass="card-link">Another link</a>
+				  </div>
+				</div>
+			  </div>
+	        </west>
+	        <center autoscroll="true">
+	            <apply templateURI="~./zul/resources.zul"/>
+	        </center>
+	        <south style="height:24rem;">
+	            <apply templateURI="~./zul/mvvm.zul"/>
+	        </south>
+	    </borderlayout>
+	</template>
+
 </zk>
+
+
